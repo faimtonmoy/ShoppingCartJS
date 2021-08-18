@@ -22,7 +22,26 @@ function updateCaseAndPhone(product, isIncreasing)
     {
         price.innerText= number * 59;
     }
-   
+   calculateTotal();
+
+}
+function getInputValue(product)
+{
+    const number= parseInt(document.getElementById(product+'-number').value);
+    return number;
+}
+function calculateTotal()
+{
+ 
+    const phoneTotal= getInputValue('phone')*1219;
+    const caseTotal= getInputValue('case')* 59;
+    const subTotal= phoneTotal+caseTotal;
+    const tax= parseInt(subTotal* .10);
+    const total= subTotal+tax;
+    document.getElementById('sub-total').innerText= subTotal;
+    document.getElementById('tax-amount').innerText= tax;
+    document.getElementById('total-amount').innerText= total;
+
 
 }
 //Phone increase and decrease
